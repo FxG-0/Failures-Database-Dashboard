@@ -1,0 +1,6 @@
+{
+  "name": "Failures Database Dashboard",
+  "description": "A real-time failures database dashboard with interactive filters, editable grid, user authorization workflows, role-based access, and admin console.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,73 @@
+{
+  "entities": {
+    "users": {
+      "title": "Users",
+      "description": "User profiles and roles for Failures Database",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "viewer"] },
+        "createdAt": { "type": "string" },
+        "disabled": { "type": "boolean" }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "failures": {
+      "title": "Failures",
+      "description": "Oilfield and drilling equipment failure records",
+      "properties": {
+        "year": { "type": "number" },
+        "date": { "type": "string" },
+        "month": { "type": "string" },
+        "failures": { "type": "string" },
+        "client": { "type": "string" },
+        "tff_si": { "type": "string" },
+        "ca_sperry": { "type": "string" },
+        "run": { "type": "string" },
+        "observation": { "type": "string" },
+        "initial_findings": { "type": "string" },
+        "root_cause": { "type": "string" },
+        "failed_component": { "type": "string" },
+        "failed_tool": { "type": "string" },
+        "fad": { "type": "string" },
+        "equipment_no": { "type": "string" },
+        "action_plan": { "type": "string" },
+        "npt": { "type": "number" },
+        "npt_in_system": { "type": "string" },
+        "witness_status": { "type": "string" },
+        "updatedAt": { "type": "string" },
+        "updatedBy": { "type": "string" }
+      },
+      "required": ["client", "failed_tool"]
+    },
+    "audit_logs": {
+      "title": "Audit Logs",
+      "description": "Activity log for changes made to failures dataset",
+      "properties": {
+        "timestamp": { "type": "string" },
+        "userId": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "action": { "type": "string" },
+        "docId": { "type": "string" },
+        "details": { "type": "string" }
+      },
+      "required": ["timestamp", "userEmail", "action"]
+    },
+    "supplemental_info": {
+      "title": "Supplemental FAD Info",
+      "description": "Extra reference data uploaded from a separate Excel file, matched to failures by FAD number (doc ID is the normalized FAD key)",
+      "properties": {
+        "id": { "type": "string" },
+        "fad": { "type": "string" },
+        "matchedRecordId": { "type": "string" },
+        "matched": { "type": "boolean" },
+        "keyColumnLabel": { "type": "string" },
+        "columns": { "type": "array" },
+        "sourceFileName": { "type": "string" },
+        "uploadedAt": { "type": "string" },
+        "uploadedBy": { "type": "string" }
+      },
+      "required": ["id", "fad", "matched", "columns"]
+    }
+  }
+}
